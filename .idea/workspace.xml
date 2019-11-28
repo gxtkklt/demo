@@ -6,8 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e52dc10-bc1b-4327-b169-8297ab1f22d5" name="Default" comment="">
+    <list default="true" id="8e52dc10-bc1b-4327-b169-8297ab1f22d5" name="Default" comment="第二次新增了一个类2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fh/controller/Ssadaa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fh/controller/Ssadaa.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,8 +37,12 @@
       <file leaf-file-name="Ssadaa.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fh/controller/Ssadaa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="132">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+              <folding>
+                <element signature="e#95#96#0" expanded="true" />
+                <element signature="e#131#132#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,6 +68,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -82,6 +88,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/fh/mapper/GameMapper.java" />
         <option value="$PROJECT_DIR$/../game_html/web/gamelist.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/fh/controller/TestGit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fh/controller/Ssadaa.java" />
       </list>
     </option>
   </component>
@@ -145,6 +152,32 @@
               <item name="game_admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="game_admin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="game_admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game_admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game_admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game_admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fh" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -155,12 +188,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/git/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -398,7 +432,7 @@
       <workItem from="1574511199923" duration="1406000" />
       <workItem from="1574561850224" duration="27000" />
       <workItem from="1574652580790" duration="519000" />
-      <workItem from="1574941497791" duration="1982000" />
+      <workItem from="1574941497791" duration="2530000" />
     </task>
     <task id="LOCAL-00001" summary="TEST2">
       <created>1574941585201</created>
@@ -442,14 +476,29 @@
       <option name="project" value="LOCAL" />
       <updated>1574944555170</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="第二次新增了一个类!">
+      <created>1574944922503</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574944922503</updated>
+    </task>
+    <task id="LOCAL-00008" summary="第二次新增了一个类2">
+      <created>1574945196059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574945196059</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19930000" />
+    <option name="totallyTimeSpent" value="20478000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -468,11 +517,11 @@
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="bottom" id="Version Control" order="3" visible="true" weight="0.14851485" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Run" order="8" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.19894099" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.19894099" />
       <window_info id="Web" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info id="Favorites" order="4" side_tool="true" />
@@ -532,7 +581,9 @@
     <MESSAGE value="又推送了一个2" />
     <MESSAGE value="又推送了一个sout" />
     <MESSAGE value="//asdad" />
-    <option name="LAST_COMMIT_MESSAGE" value="//asdad" />
+    <MESSAGE value="第二次新增了一个类!" />
+    <MESSAGE value="第二次新增了一个类2" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次新增了一个类2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -966,8 +1017,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fh/controller/Ssadaa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="132">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding>
+            <element signature="e#95#96#0" expanded="true" />
+            <element signature="e#131#132#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
