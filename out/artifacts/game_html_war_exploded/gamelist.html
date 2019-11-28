@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/js/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/js/DataTables/DataTables-1.10.18/js/jquery.dataTables.js"></script>
+    <script src="/js/DataTables/DataTables-1.10.18/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="/js/bootstrap-datetimepicker/js/moment-with-locales.js"></script>
+    <script src="/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="/js/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/DataTables/DataTables-1.10.18/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+
+
+</head>
+<script>
+$(function(){
+    initDateTable();
+    initDate();
+
+})
+function initDateTable(){
+    myTable =    $('#example').DataTable({
+        serverSide: true,//
+        "ajax": {
+            url: 'http://localhost:8081/GameController/queryList',
+            type: 'post'
+        },
+        retrieve:true,//不弹出错误框
+        searching: false,//禁用搜索
+        ordering:  false,//禁用排序
+        "lengthMenu": [ 3, 6, 9, 10,-1],
+        "columns": [
+            { "data": "id" },
+            { "data": "name" },
+            { "data": "price"},
+            { "data": "login"},
+            { "data": "showDate",render:function (data,type,row,meta) {
+                    return new Date(data).toLocaleString();
+                }},
+            { data: "id","render":function (data,type,row,meta){  //row 代表这一行的数据
+                    var str = JSON.stringify(row)
+                    var html="<button type='button' class='btn bn-primary oemp-privotn' onclick=\"deldetes('"+row.id+"')\">删除</button>"+
+                            "&nbsp;&nbsp;<button type='button' class='btn bn-primary oemp-privotn' onclick='upda("+str+")'>修改</button>";
+                    return html;
+                }
+            },
+        ],
+
+        "language": {
+            "sProcessing":   "处理中...",
+            "sLengthMenu":   "_MENU_ 记录/页",
+            "sZeroRecords":  "没有匹配的记录",
+            "sInfo":         "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
+            "sInfoEmpty":    "显示第 0 至 0 项记录，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项记录过滤)",
+            "sInfoPostFix":  "",
+            "sSearch":       "过滤:",
+            "sUrl":          "",
+            "oPaginate": {
+                "sFirst":    "首页",
+                "sPrevious": "上页",
+                "sNext":     "下页",
+                "sLast":     "末页"
+            }
+        }
+    });
+}
+function initDate(){
+    $('#minDate').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss',
+        locale: 'zh-CN',
+        showClear:true
+
+    });
+    $('#maxDate').datetimepicker({
+        format: 'YYYY-MM-DD HH:mm:ss',
+        locale: 'zh-CN',
+        showClear:true
+    });
+}
+
+
+//删除
+function deldetes(id) {
+    $.post({
+        url:"http://localhost:8081/GameController/deletegame",
+        data:{
+            id:id,
+            "_method":"DELETE"
+        },
+        dataType:"json",
+        success:function (data) {
+            queryList();
+        }
+    })
+}
+/*function queryList(){
+    $("#example").dataTable().fnDraw(false);//点击事件触发table重新请求服务器
+}*/
+</script>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" id="searchForm" >
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">操作人</label>
+                    <div class="col-sm-3">
+                        <input type="email" class="form-control" id="userName" placeholder="操作人" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">创建日期</label>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" id="minDate"  class="form-control" placeholder="" aria-describedby="basic-addon1">
+                            <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input type="text" id="maxDate"  class="form-control" placeholder="" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div style="text-align: center">
+                    <button type="button" onclick="queryList()" class="btn btn-primary "><i class="glyphicon glyphicon-search"></i>Submit</button>&nbsp;&nbsp;&nbsp;
+                    <button type="reset" class="btn btn-default"><i class="glyphicon glyphicon-repeat"></i>Reset</button>
+                </div>
+
+            </form>
+
+            <div class="panel panel-primary" >
+                <!-- Default panel contents -->
+
+                <div class="panel-heading" style="text-align: left">游戏管理
+                </div>
+
+                <div  class="panel-body">
+                    <!-- Table -->
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                        <tr >
+                            <th>id</th>
+                            <th>游戏名称</th>
+                            <th>游戏余额</th>
+                            <th>登陆账号</th>
+                            <th>上线时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+
+                        <tfoot>
+                        <tr >
+                            <th>id</th>
+                            <th>游戏名称</th>
+                            <th>游戏余额</th>
+                            <th>登陆账号</th>
+                            <th>上线时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<button class="btn btn-primary btn-lg" data-toggle="modal"
+         data-target="#myModal">增加商品</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"  class="close" data-dismiss="modal"
+                        aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">请选择</h4>
+            </div>
+            <form class="form-inline"
+                  action="<%=request.getContextPath()%>/shoup/add.com" method="post"
+                  enctype="multipart/form-data">
+                游戏名字:<input type="text" class="form-control" name="namme"
+                            placeholder="游戏名字"><br />
+                <br />
+                游戏余额:<input type="text" class="form-control"
+                                   class="form-control" name="price" placeholder="游戏余额"> <br />
+                <br/>
+                游戏账号:<input type="text" class="form-control"
+                            class="form-control" name="pname" placeholder="游戏账号"> <br />
+                <br />
+
+                <!-- <input type="text" id="areasheng" name="productclassify">   -->
+                <input type="hidden" name="id">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                    <button type="button" class="btn btn-primary" onclick="add()">提交更改</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+//add
+function add(){
+    var name = $('[name="namme"]').val()
+    var price = $('[name="price"]').val()
+    var pname = $('[name="pname"]').val()
+    var id = $('[name="id"]').val()
+    $.post({
+        url:"http://localhost:8081/GameController/addgame",
+        dataType:"json",
+        data:{
+            "name":name,
+            "price":price,
+            "login":pname,
+            "id":id
+        },
+        success:function(data){
+            queryList()
+            $("#myModal").modal("hide")
+        },
+        error:function(){
+            alert("品牌查询异常")
+        }
+    })
+
+}
+
+
+function upda(s){
+   $('[name="namme"]').val(s.name)
+    $('[name="price"]').val(s.price)
+    $('[name="pname"]').val(s.login)
+    $('[name="id"]').val(s.id)
+    $("#myModal").modal("show")
+}
+
+function queryList(){
+    var name=$("#userName").val();
+    var min=$("#minDate").val()
+    var max=$("#maxDate").val()
+    var data={"userName":name,"min":min,"max":max};  // 传的参数
+    myTable.settings()[0].ajax.data=data; //模糊查询
+    myTable.ajax.reload();
+}
+</script>
+</html>
