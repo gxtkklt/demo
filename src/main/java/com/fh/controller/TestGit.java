@@ -10,5 +10,6 @@ public class TestGit {
 
     public void asdadsad(){
         System.out.println("又推送了一个");
+        System.out.println("adadsadasdasdsdad");
     }
 }
